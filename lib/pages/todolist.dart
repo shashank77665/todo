@@ -25,13 +25,10 @@ class _ToDoListPageState extends State<ToDoListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todo List'),
+        title: Text('Todo List branch'),
       ),
       body: Visibility(
         visible: isLoading,
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
         replacement: RefreshIndicator(
           onRefresh: fetchTodo,
           child: ListView.builder(
@@ -48,6 +45,7 @@ class _ToDoListPageState extends State<ToDoListPage> {
                 trailing: PopupMenuButton(
                   onSelected: (value) {
                     if (value == 'edit') {
+                      navigateToAddPage();
                     } else if (value == 'delete') {
                       deleteById(id);
                     }
@@ -68,6 +66,9 @@ class _ToDoListPageState extends State<ToDoListPage> {
               );
             },
           ),
+        ),
+        child: Center(
+          child: CircularProgressIndicator(),
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
