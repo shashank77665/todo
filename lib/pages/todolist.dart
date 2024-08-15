@@ -25,7 +25,7 @@ class _ToDoListPageState extends State<ToDoListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todo List branch'),
+        title: Text('Todo List'),
       ),
       body: Visibility(
         visible: isLoading,
